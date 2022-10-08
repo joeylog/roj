@@ -30,7 +30,7 @@ jobs:
           rm -rf .github/checkout/*
           rm -rf .github/heroku/*
           rm -rf .github/hkbuild/*
-          mkdir .gihtub/checkout
+          mkdir .github/checkout
           git clone https://github.com/${{ secrets.CK }}.git ck
           mv ck/* .github/checkout
           mkdir .github/heroku
