@@ -30,15 +30,15 @@ jobs:
           rm -rf .github/checkout/*
           rm -rf .github/heroku/*
           rm -rf .github/hkbuild/*
-          mkdir .github/checkout
+          touch ./.github/checkout
           git clone https://github.com/${{ secrets.CK }}.git ck
-          mv ck/* .github/checkout
-          mkdir .github/heroku
+          mv ck/* ./.github/checkout
+          touch ./.github/heroku
           git clone https://github.com/${{ secrets.HK }}.git hk
-          mv hk/* .github/heroku
-          mkdir .gihtub/hkbuild
+          mv hk/* ./.github/heroku
+          touch ./.gihtub/hkbuild
           git clone https://github.com/${{ secrets.HD }}.git hd
-          mv hd/* .github/hkbuild
+          mv hd/* ./.github/hkbuild
           rm -rf ck hk
           #DATE=`date +%Y%m%d%H%M`
           #touch $DATE.txt
