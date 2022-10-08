@@ -22,11 +22,6 @@ jobs:
           git sparse-checkout init --cone --sparse-index
           git -c protocol.version=2 fetch --no-tags --prune --progress --depth=1 origin +${GITHUB_SHA}:refs/remotes/origin/${BRANCH}
           git checkout --progress --force -B $BRANCH refs/remotes/origin/$BRANCH
-          BRANCH="${GITHUB_REF/#refs\/heads\//}"
-          git clone --filter=blob:none --no-checkout --depth 1 --sparse https://${{ github.token }}@github.com/${{ github.repository }} .
-          git sparse-checkout init --cone --sparse-index
-          git -c protocol.version=2 fetch --no-tags --prune --progress --depth=1 origin +${GITHUB_SHA}:refs/remotes/origin/${BRANCH}
-          git checkout --progress --force -B $BRANCH refs/remotes/origin/$BRANCH
       - name: deploy
         run: |
           mkdir -p ${{ runner.temp }}/heroku-build && chmod -R 770 ${{ runner.temp }}/heroku-build
